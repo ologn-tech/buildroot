@@ -3,9 +3,15 @@
 auto lo
 iface lo inet loopback
 
+auto wlan0
+iface wlan0 inet static
+  address 192.168.2.1
+  netmask 255.255.255.0
+
 auto wlan1
 iface wlan1 inet dhcp
-    pre-up wpa_supplicant -B -Dwext -iwlan1 -c/etc/wpa_supplicant.conf
-    post-down killall -q wpa_supplicant
-    wait-delay 15
+  pre-up wpa_supplicant -B -Dwext -iwlan1 -c/etc/wpa_supplicant.conf
+  post-down killall -q wpa_supplicant
+  wait-delay 15
+
 iface default inet dhcp
