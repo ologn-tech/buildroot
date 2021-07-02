@@ -53,3 +53,14 @@ BR2_PACKAGE_WPA_SUPPLICANT_CLI=y
 
 # spi flash support
 BR2_PACKAGE_MTD=y
+
+# ssh
+BR2_PACKAGE_OPENSSH=y
+BR2_PACKAGE_OPENSSH_CLIENT=y
+BR2_PACKAGE_OPENSSH_SERVER=y
+
+# rootfs overlay
+BR2_ROOTFS_OVERLAY="board/orangepi/orangepi-zero/rootfs-overlay"
+
+# awa
+BR2_PACKAGE_AWA=y

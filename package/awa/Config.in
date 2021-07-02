@@ -1,0 +1,4 @@
+config BR2_PACKAGE_AWA
+	bool "awa"
+	help
+	  Awa - Android Auto Wireless Adapter
