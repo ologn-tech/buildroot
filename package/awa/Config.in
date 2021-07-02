@@ -1,4 +1,5 @@
 config BR2_PACKAGE_AWA
 	bool "awa"
+	select BR2_PACKAGE_LIBUSBGX
 	help
 	  Awa - Android Auto Wireless Adapter

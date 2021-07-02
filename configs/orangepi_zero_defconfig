@@ -65,4 +65,5 @@ BR2_PACKAGE_OPENSSH_SERVER=y
 BR2_ROOTFS_OVERLAY="board/orangepi/orangepi-zero/rootfs-overlay"
 
 # awa
+BR2_PACKAGE_LIBUSBGX=y
 BR2_PACKAGE_AWA=y
