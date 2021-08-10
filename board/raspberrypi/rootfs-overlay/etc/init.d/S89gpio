@@ -1,0 +1,24 @@
+#!/bin/sh
+
+case "$1" in
+        start)
+                printf "Export GPIO: "
+		echo 5 >/sys/class/gpio/export
+		echo out >/sys/class/gpio/gpio5/direction
+                [ $? = 0 ] && echo "OK" || echo "FAIL"
+                ;;
+        stop)
+                printf "Unexport GPIO: "
+		echo 5 >/sys/class/gpio/unexport
+                [ $? = 0 ] && echo "OK" || echo "FAIL"
+                ;;
+        restart|reload)
+                $0 stop
+                $0 start
+                ;;
+        *)
+                echo "Usage: $0 {start|stop|restart}"
+                exit 1
+esac
+
+exit 0

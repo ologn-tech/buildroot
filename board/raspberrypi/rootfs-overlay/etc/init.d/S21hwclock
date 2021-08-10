@@ -1,0 +1,29 @@
+#!/bin/sh
+
+case "$1" in
+        start)
+                printf "Loading modules: "
+		modprobe i2c-bcm2835
+		modprobe i2c-dev
+		modprobe rtc-ds1307
+		echo ds1307 0x68 > /sys/class/i2c-adapter/i2c-1/new_device
+		hwclock -s
+                [ $? = 0 ] && echo "OK" || echo "FAIL"
+                ;;
+        stop)
+                printf "Unloading modules: "
+		rmmod rtc-ds1307
+		rmmod i2c-dev
+		rmmod i2c-bcm2835
+                [ $? = 0 ] && echo "OK" || echo "FAIL"
+                ;;
+        restart|reload)
+                $0 stop
+                $0 start
+                ;;
+        *)
+                echo "Usage: $0 {start|stop|restart}"
+                exit 1
+esac
+
+exit 0

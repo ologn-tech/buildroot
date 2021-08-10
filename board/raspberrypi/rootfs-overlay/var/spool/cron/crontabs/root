@@ -1,0 +1,2 @@
+00 07 * * * echo 1 > /sys/class/gpio/gpio5/value
+15 07 * * * echo 0 > /sys/class/gpio/gpio5/value
